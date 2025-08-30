@@ -1,0 +1,44 @@
+.main-container {
+    @apply grid grid-cols-1 gap-6 mt-10;
+
+    .top-container {
+        @apply w-full h-auto bg-white rounded-md p-6;
+        .container{
+            @apply  border border-dashed rounded-md border-blue-500 gap-1 my-4;
+            @apply p-4 grid grid-cols-1 place-items-center;
+            .upload{
+                @apply bg-blue-400 text-blue-700 p-2 mt-3 rounded-md border border-blue-700;
+                @apply hover:bg-blue-300;
+            }
+        }
+    }
+    .bottom-container {
+  @apply w-full h-auto bg-white rounded-md p-6;
+
+  .approve {
+    @apply bg-green-400 text-green-700 p-2 rounded-md border border-green-700;
+    @apply hover:bg-green-300 w-24;
+  }
+
+  .edit {
+    @apply bg-yellow-400 text-yellow-700 p-2 rounded-md border border-yellow-700;
+    @apply hover:bg-yellow-300 w-24;
+  }
+  .box{
+    @apply bg-gray-100 rounded-lg p-4 w-full  my-4 rounded-md;
+    @apply grid grid-cols-1;
+  }
+  th{
+    @apply text-left text-xs font-medium text-gray-500 uppercase tracking-wider pb-3;
+  }
+  td{
+    @apply py-3 text-sm text-gray-900;
+  }
+  tbody{
+    tr{
+        @apply hover:bg-blue-50 cursor-pointer;
+    }
+  }
+}
+
+}

@@ -1,0 +1,95 @@
+<div class="px-12">
+    <span class="text-4xl font-bold">Purchase Order Extraction</span><br>
+    <span class="text-xl opacity-50">Upload and extract data from PDF purchase orders</span>
+    <div class="main-container">
+        <div class="top-container">
+            <span class="text-xl font-semibold">Upload Purchase Order</span>
+            <div class="container">
+                <div class="icon"><img src="../loading.png" alt="" class="image"></div>
+                <div>
+                    <span class="text-lg">Drop PDF files here or click to upload</span>
+                </div>
+                <div>
+                    <span class="text-md opacity-50">Supports PDF files up to 10MB</span>
+                </div>
+                <div>
+                    <button class="upload">Browese Files</button>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-container">
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-lg font-bold">Extracted Purchase Order Data</span>
+                </div>
+                <div class="flex gap-4">
+                    <button class="approve">Approve</button>
+                    <button class="edit">Edit</button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="box">
+                    <span class="text-sm  uppercase text-gray-700">PO Number</span>
+                    <span class="text-lg font-semibold">PO-2024-0157</span>
+                </div>
+                <div class="box">
+                    <span class="text-sm  uppercase text-gray-700">Customer</span>
+                </div>
+                <div class="box">
+                    <span class="text-sm  uppercase text-gray-700">Currency</span>
+                </div>
+                <div class="box">
+                    <span class="text-sm  uppercase text-gray-700">total value</span>
+                </div>
+                <div class="box col-span-2">
+                    <span class="text-sm font-semibold">Invoice Address</span>
+                    <span class="text-sm  text-gray-700 mt-2">Acme Corporation
+
+                        123 Business Ave, Suite 100
+
+                        New York, NY 10001
+
+                        United States</span>
+                </div>
+
+                <div class="box col-span-2">
+                    <span class="text-sm font-semibold">Delivery Address</span>
+                    <span class="text-sm  text-gray-600 mt-2">Acme Corporation
+
+                        123 Business Ave, Suite 100
+
+                        New York, NY 10001
+
+                        United States</span>
+                </div>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Order Items</h4>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th>Item
+                                Name</th>
+                            <th>Unit
+                                Price</th>
+                            <th>
+                                Quantity</th>
+                            <th>Total
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td >Premium Widget Assembly
+                            </td>
+                            <td>$125.00</td>
+                            <td>50</td>
+                            <td>$6,250.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
