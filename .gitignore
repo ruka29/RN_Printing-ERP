@@ -1,0 +1,11 @@
+backend/extraction_model/.venv
+backend/extraction_model/Pipfile.lock
+backend/extraction_model/__pycache__
+backend/extraction_model/data
+
+backend/server/.venv
+backend/server/EmployeeApp/__pycache__
+backend/server/EmployeeApp/migrations
+backend/server/SalesOrderApp/__pycache__
+backend/server/SalesOrderApp/migrations
+backend/server/server/__pycache__
