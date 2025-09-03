@@ -31,10 +31,9 @@
     @apply hover:bg-red-300 w-16;
     }
     .edit{
-         @apply bg-yellow-400 text-yellow-700 p-1 rounded-md border border-yellow-700;
-    @apply hover:bg-yellow-300 w-16 mx-4;
+         @apply bg-green-400 text-green-700 p-1 rounded-md border border-green-700;
+    @apply hover:bg-green-300 w-16 mx-4;
     }
   }
 }
-
 }

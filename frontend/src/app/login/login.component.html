@@ -1,1 +1,44 @@
-<p class="text-red-500">login works!</p>
+<div class="flex h-3/4 w-3/4 mx-auto mt-20">
+    <div class="w-1/2 bg-white flex items-center justify-center shadow-lg ">
+        <div class="text-center">
+            <div class="flex">
+                <img src="../erps.png" alt="Logo" />
+            </div>
+            <h1 class="text-2xl font-bold text-blue-500">RN-PRINTING (PVT) LTD.</h1>
+        </div>
+    </div>
+
+    <div class="w-1/2 bg-blue-400 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <label class="block text-white text-sm mb-1">Your email</label>
+                <input type="email" placeholder="Enter your email"
+                    class="w-full p-2 mb-4 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    name="email" formControlName="email" />
+                    @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched){<div  class="text-red-400 text-xs mb-2">
+  Valid email is required
+</div>}
+                    
+
+                <label class="block text-white text-sm mb-1">Password</label>
+                <input type="password" placeholder="Enter your password"
+                    class="w-full p-2 mb-4 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    name="password" formControlName="password" />
+@if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){<div  class="text-red-400 text-xs mb-2">
+  Valid password is required
+</div>}
+                <div class="flex items-center justify-between mb-4">
+                    <label class="flex items-center text-gray-500 text-sm">
+                        <input type="checkbox" class="mr-2" /> Remember me
+                    </label>
+                    <a href="#" class="text-sm text-gray-500 hover:text-white">Recover password</a>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-blue-400 hover:bg-blue-500 text-blue-900 font-semibold py-2 rounded-md transition">
+                    SIGN IN
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

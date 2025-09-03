@@ -5,7 +5,7 @@
         <div class="top-container">
             <span class="text-xl font-semibold">Upload Purchase Order</span>
             <div class="container">
-                <div class="icon"><img src="../loading.png" alt="" class="image"></div>
+                <div class="w-20"><img src="../loading.png" alt="" class="image"></div>
                 <div>
                     <span class="text-lg">Drop PDF files here or click to upload</span>
                 </div>
@@ -23,46 +23,36 @@
                     <span class="text-lg font-bold">Extracted Purchase Order Data</span>
                 </div>
                 <div class="flex gap-4">
-                    <button class="approve">Approve</button>
-                    <button class="edit">Edit</button>
+                    <button class="save" (click)="save()">Save</button>
+                    <button class="edit" (click)="toggleEditMode()">Edit</button>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="box">
-                    <span class="text-sm  uppercase text-gray-700">PO Number</span>
-                    <span class="text-lg font-semibold">PO-2024-0157</span>
-                </div>
-                <div class="box">
-                    <span class="text-sm  uppercase text-gray-700">Customer</span>
-                </div>
-                <div class="box">
-                    <span class="text-sm  uppercase text-gray-700">Currency</span>
-                </div>
-                <div class="box">
-                    <span class="text-sm  uppercase text-gray-700">total value</span>
-                </div>
-                <div class="box col-span-2">
-                    <span class="text-sm font-semibold">Invoice Address</span>
-                    <span class="text-sm  text-gray-700 mt-2">Acme Corporation
-
-                        123 Business Ave, Suite 100
-
-                        New York, NY 10001
-
-                        United States</span>
-                </div>
-
-                <div class="box col-span-2">
-                    <span class="text-sm font-semibold">Delivery Address</span>
-                    <span class="text-sm  text-gray-600 mt-2">Acme Corporation
-
-                        123 Business Ave, Suite 100
-
-                        New York, NY 10001
-
-                        United States</span>
-                </div>
-            </div>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div>
+            <span class="text-sm uppercase text-gray-700">PO Number</span>
+            <input type="text" class="input" [disabled]="!isEditable" [(ngModel)]="saveData.poNumber" name="poNumber">
+        </div>
+        <div>
+            <span class="text-sm uppercase text-gray-700">Customer</span>
+            <input type="text" class="input" [disabled]="!isEditable" [(ngModel)]="saveData.customer" name="customer">
+        </div>
+        <div class="box">
+            <span class="text-sm uppercase text-gray-700">Currency</span>
+            <input type="text" class="input" [disabled]="!isEditable" [(ngModel)]="saveData.currency" name="currency">
+        </div>
+        <div class="box">
+            <span class="text-sm uppercase text-gray-700">total value</span>
+            <input type="text" class="input" [disabled]="!isEditable" [(ngModel)]="saveData.tValue" name="tValue">
+        </div>
+        <div class="box col-span-2">
+            <span class="text-sm font-semibold">Invoice Address</span>
+            <textarea class="input" [disabled]="!isEditable" [(ngModel)]="saveData.inAddress" name="inAddress"></textarea>
+        </div>
+        <div class="box col-span-2">
+            <span class="text-sm font-semibold">Delivery Address</span>
+            <textarea class="input" [disabled]="!isEditable" [(ngModel)]="saveData.deliAddress" name="deliAddress"></textarea>
+        </div>
+    </div>
             <h4 class="text-lg font-semibold text-gray-900 mb-4">Order Items</h4>
             <div class="overflow-x-auto">
                 <table class="w-full">
@@ -76,20 +66,52 @@
                                 Quantity</th>
                             <th>Total
                             </th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                        <tr>
-                            <td >Premium Widget Assembly
+                        @for(item of data; track item.id){ <tr>
+                            <td>{{item.itemName}}
                             </td>
-                            <td>$125.00</td>
-                            <td>50</td>
-                            <td>$6,250.00</td>
-                        </tr>
+                            <td>{{item.unitPrice}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.total}}</td>
+                            <td><button type="button"><img src="../edit.png" alt="" class="icon" (click)="openForm(item)"></button></td>
+                        </tr>}
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
 </div>
+@if (showForm && selectedItem) {
+  <div class="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-1/3">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Edit Item</h2>
+        <button (click)="closeForm()" class="text-red-500 hover:text-red-800 text-xl">&times;</button>
+      </div>
+      <form class="grid grid-cols-2 gap-2">
+        <div class="mb-4">
+          <label class="block text-gray-700">Item Name</label>
+          <input type="text" [(ngModel)]="selectedItem.itemName" name="itemName" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Unit Price</label>
+          <input type="text" [(ngModel)]="selectedItem.unitPrice" name="unitPrice" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Quantity</label>
+          <input type="text" [(ngModel)]="selectedItem.quantity" name="quantity" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Total</label>
+          <input type="text" [(ngModel)]="selectedItem.total" name="total" class="mt-1 p-2 w-full border rounded">
+        </div>
+        <div class="col-span-2">
+          <button type="submit" class="bg-blue-400 text-blue-700 rounded-md border border-blue-700 w-full h-10" (click)="saveChanges()">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}
