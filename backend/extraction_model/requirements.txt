@@ -1,0 +1,82 @@
+# Core dependencies
+numpy==1.25.0
+
+# OCR & PDF processing
+paddlepaddle==2.6.2
+paddleocr==2.6.1.1
+PyMuPDF==1.20.2
+pdf2docx==0.5.8
+opencv-python==4.8.1.78
+opencv-contrib-python==4.8.1.78
+scikit-image==0.25.2
+imgaug==0.4.0
+tqdm==4.67.1
+cython==3.1.3
+Pillow==11.3.0
+python-docx==1.2.0
+lxml==6.0.1
+shapely==2.1.1
+visualdl==2.5.3
+rapidfuzz==3.14.0
+attrdict==2.0.1
+premailer==3.10.0
+fire==0.7.1
+PyClipper==1.3.0.post6
+
+# Transformers & LayoutLMv3
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
+transformers==4.41.0
+datasets==2.16.0
+
+# Label Studio
+label-studio==1.11.0
+label-studio-converter==0.0.57
+label-studio-tools==0.0.4
+
+# Misc / Utilities
+matplotlib==3.10.6
+pandas==2.3.2
+tifffile==2025.5.10
+networkx==3.4.2
+lazy-loader==0.4
+packaging==25.0
+beautifulsoup4==4.13.5
+cssselect==1.3.0
+cssutils==2.11.1
+requests==2.31.0
+httpx==0.28.1
+httpcore==1.0.9
+anyio==4.10.0
+exceptiongroup==1.3.0
+sniffio==1.3.1
+typing-extensions==4.15.0
+cycler==0.12.1
+contourpy==1.3.2
+pyparsing==3.2.3
+kiwisolver==1.4.9
+python-dateutil==2.9.0.post0
+flask==3.1.2
+Flask-Babel==4.0.0
+werkzeug==3.1.3
+jinja2==3.1.6
+itsdangerous==2.2.0
+click==8.2.1
+Babel==2.17.0
+
+# pip install numpy==1.25.0
+
+# pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0
+# pip install transformers==4.41.0 datasets==2.16.0
+
+# pip install paddlepaddle==2.6.2
+# pip install paddleocr==2.6.1.1 PyMuPDF==1.20.2 pdf2docx==0.5.8
+# pip install opencv-python==4.8.1.78 opencv-contrib-python==4.8.1.78
+# pip install scikit-image==0.25.2 imgaug==0.4.0 tqdm==4.67.1
+# pip install cython==3.1.3 Pillow==11.3.0 python-docx==1.2.0
+# pip install lxml shapely visualdl rapidfuzz attrdict premailer fire PyClipper
+
+# pip install label-studio==1.11.0 label-studio-converter==0.0.57 label-studio-tools==0.0.4
+
+# pip install matplotlib pandas tifffile networkx lazy-loader packaging beautifulsoup4 cssselect cssutils requests httpx httpcore anyio exceptiongroup sniffio typing-extensions cycler contourpy pyparsing kiwisolver python-dateutil flask Flask-Babel werkzeug jinja2 itsdangerous click Babel
