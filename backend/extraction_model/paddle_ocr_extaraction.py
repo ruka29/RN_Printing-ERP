@@ -53,7 +53,7 @@ def extracted_tables_to_label_studio_json_file_with_paddleOCR(images_folder_path
 
         print(f"Processing {image_file}")
 
-        # Map image to URL (matches your target format)
+        # Map image to URL
         output_json["data"] = {"ocr": create_image_url(image_file)}
 
         # Open image
@@ -65,7 +65,7 @@ def extracted_tables_to_label_studio_json_file_with_paddleOCR(images_folder_path
         # Run OCR
         result = ocr.ocr(img, cls=False)
 
-        # Extract annotations
+        prev_region_id = None  # to keep track of previous line
         for output in result:
             for item in output:
                 co_ord = item[0]  # bounding box points
@@ -113,6 +113,21 @@ def extracted_tables_to_label_studio_json_file_with_paddleOCR(images_folder_path
                 }
 
                 annotation_result.extend([bbox_result, transcription_result])
+
+                # Add relation if consecutive lines should be linked
+                if prev_region_id:
+                    relation_id = str(uuid4())[:10]
+                    relation = {
+                        "id": relation_id,
+                        "from_id": prev_region_id,
+                        "to_id": region_id,
+                        "type": "relation",
+                        "direction": "right",
+                        "labels": ["belongs_to_row"]
+                    }
+                    annotation_result.append(relation)
+
+                prev_region_id = region_id  # update previous
 
         # Wrap results in predictions
         output_json["predictions"] = [{"result": annotation_result, "score": 0.97}]

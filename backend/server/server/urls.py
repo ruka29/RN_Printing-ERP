@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/employees/', include('EmployeeApp.urls')),
     path('api/sales_orders/', include('SalesOrderApp.urls')),
+    path('api/extract_data/', include('ModelHandler.urls')),
 ]
