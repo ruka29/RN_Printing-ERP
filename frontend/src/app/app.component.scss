@@ -9,7 +9,7 @@
 }
 
 .logo {
-  @apply px-6 py-4 text-xl font-semibold text-blue-600;
+  @apply px-6 py-4 w-52;
 }
 
 .menu {
@@ -18,7 +18,7 @@
 
 .menu-item {
          @apply flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors
-          hover:bg-blue-100 hover:text-blue-900 transition-colors ;
+          hover:bg-blue-100 hover:text-blue-900  ;
 }
 
 
@@ -36,7 +36,7 @@
 }
 
 .name {
-  @apply text-sm font-medium;
+  @apply text-sm font-medium cursor-pointer;
 }
 
 .role {

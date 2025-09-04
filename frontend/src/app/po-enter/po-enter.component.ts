@@ -66,4 +66,9 @@ openForm(item: Item) {
       this.closeForm();
     }
   }
+    showExtractedData: boolean = false;
+  extractAndDisplayData() {
+    
+        this.showExtractedData = true;
+    }
 }

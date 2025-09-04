@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ProfileViewComponent } from "./profile-view/profile-view.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ProfileViewComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -16,5 +17,14 @@ export class AppComponent {
         this.isLoginPage = event.url.includes('/login');
       }
     });
+  }
+ showProfile: boolean = false; 
+
+  viewDetails() {
+    this.showProfile = true;
+  }
+
+  closeProfile() {
+    this.showProfile = false;
   }
 }

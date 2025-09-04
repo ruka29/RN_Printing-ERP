@@ -1,10 +1,11 @@
 <div class="px-12">
     <div class="main-container">
-        <div class="bottom-container">
-            <div class="flex items-center justify-between">
-                <div>
-                    <span class="text-2xl font-bold opacity-80">Purchase Orders</span>
+        <div>
+                    <span class="text-2xl font-bold opacity-80">Sales Order Details</span>
                 </div>
+        <div class="bottom-container">
+            <div class="flex items-center justify-end">
+                
                 <select name="" id="" class="border rounded-lg">
                         <option value="">Completed</option>
                         <option value="">Processing</option>
@@ -23,6 +24,8 @@
                                 PO Date/Time</th>
                             <th>PO value
                             </th>
+                             <th>Estimated Time
+                            </th>
                             <th>
                                 Status</th>
                             <th>Actions</th>
@@ -35,13 +38,12 @@
                             <td>$125.00</td>
                             <td>50</td>
                             <td>$6,250.00</td>
+                             <td>6.00PM</td>
                             <td><span  [ngClass]="getRowClasses(item.status)">
                                     {{item.status }}
                                 </span></td>
                             <td class="flex items-center">
                                 <Button type="button" class="icon" (click)="view(item)"><img src="../view1.png" alt=""></Button>
-                                <Button type="button" class="edit">Approve</Button>
-                                <Button type="button" class="delete">Reject</Button>
                             </td>
                         </tr>}
                     </tbody>

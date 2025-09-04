@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PoEnterComponent } from "../po-enter/po-enter.component";
 
 interface viewI {
   id: number;
@@ -14,7 +15,7 @@ interface viewI {
 @Component({
   selector: 'app-po-view',
   standalone: true, // It's better to explicitly mark it as standalone
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, PoEnterComponent],
   templateUrl: './po-view.component.html',
   styleUrl: './po-view.component.scss'
 })
