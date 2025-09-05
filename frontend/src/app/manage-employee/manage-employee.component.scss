@@ -1,0 +1,17 @@
+.container {
+    @apply w-full h-auto bg-white rounded-md p-6 mt-8;
+
+    .input {
+        @apply bg-gray-100 w-full h-10 rounded-md;
+    }
+
+    .save {
+        @apply bg-blue-400 rounded-md border border-blue-700;
+        @apply hover:bg-blue-300 w-24 h-8;
+    }
+
+    .cancel {
+         @apply bg-red-400   rounded-md border border-red-700;
+    @apply hover:bg-red-300 w-24 h-8;
+    }
+}

@@ -1,0 +1,66 @@
+<div>
+    <span class="text-lg font-bold">Manage Employees</span>
+</div>
+<div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-8">
+        <div>
+            <span class="text-sm uppercase text-gray-700">First Name</span>
+            <input type="text" class="input" name="firstName" [(ngModel)]="employee.firstName" required #firstName="ngModel">
+            <ng-container *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                <div class="text-red-500 text-xs mt-1">First Name is required.</div>
+            </ng-container>
+        </div>
+        <div>
+            <span class="text-sm uppercase text-gray-700">Last Name</span>
+            <input type="text" class="input" name="lastName" [(ngModel)]="employee.lastName" required #lastName="ngModel">
+            <ng-container *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                <div class="text-red-500 text-xs mt-1">Last Name is required.</div>
+            </ng-container>
+        </div>
+        <div class="box">
+            <span class="text-sm uppercase text-gray-700">Email</span>
+            <input type="email" class="input" name="email" [(ngModel)]="employee.email" required email #email="ngModel">
+            <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div class="text-red-500 text-xs mt-1" *ngIf="email.errors?.['required']">Email is required.</div>
+                <div class="text-red-500 text-xs mt-1" *ngIf="email.errors?.['email']">Please enter a valid email.</div>
+            </ng-container>
+        </div>
+        <div class="box">
+            <span class="text-sm uppercase text-gray-700">Password</span>
+            <input type="password" class="input" name="password" [(ngModel)]="employee.password" required #password="ngModel">
+            <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div class="text-red-500 text-xs mt-1">Password is required.</div>
+            </ng-container>
+        </div>
+        <div class="box">
+            <span class="text-sm uppercase text-gray-700">Department</span>
+            <select id="dep" name="department" class="input" [(ngModel)]="employee.department" required #department="ngModel">
+                <option value="" disabled selected>-- Select Department --</option>
+                <option value="it">IT</option>
+                <option value="cs">Customer Service</option>
+            </select>
+            <ng-container *ngIf="department.invalid && (department.dirty || department.touched)">
+                <div class="text-red-500 text-xs mt-1">Department is required.</div>
+            </ng-container>
+        </div>
+        <div class="box">
+            <span class="text-sm uppercase text-gray-700">User Role</span>
+            <select id="role" name="role" class="input" [(ngModel)]="employee.role" required #role="ngModel">
+                <option value="" disabled selected>-- Select Role --</option>
+                <option value="administrator">Administrator</option>
+                <option value="cs_officer">CS Officer</option>
+            </select>
+            <ng-container *ngIf="role.invalid && (role.dirty || role.touched)">
+                <div class="text-red-500 text-xs mt-1">User Role is required.</div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="flex gap-4">
+        <div>
+            <button type="button" class="save" (click)="saveEmployee()">ADD</button>
+        </div>
+        <div>
+            <button type="button" class="cancel" (click)="cancel()">REST</button>
+        </div>
+    </div>
+</div>
