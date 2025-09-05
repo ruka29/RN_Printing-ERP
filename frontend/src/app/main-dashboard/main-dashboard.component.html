@@ -1,0 +1,57 @@
+<div class="layout">
+    <aside class="sidebar">
+        <div class="logo"><img src="../side panel top logo.png" alt=""></div>
+        <hr>
+        <nav class="menu">
+            <div class="menu-item" [ngClass]="{ active: activeTab === 'dashboard' }"
+                (click)="setActiveTab('dashboard')">
+                <img src="../bar-chart.png" alt="" class="icon">
+                Dashboard
+            </div>
+            <div class="menu-item" [ngClass]="{ active: activeTab === 'new sales order' }"
+                (click)="setActiveTab('new sales order')">
+                <img src="../new order.png" alt="" class="icon">
+                New Sales Order
+            </div>
+            <div class="menu-item" [ngClass]="{ active: activeTab === 'manage sales order' }"
+                (click)="setActiveTab('manage sales order')">
+                <img src="../manage order.png" alt="" class="icon">
+                Manage Sales Orders
+            </div>
+            @if (user?.user_role == "Administrator") {
+            <div class="menu-item" [ngClass]="{ active: activeTab === 'manage employees' }"
+                (click)="setActiveTab('manage employees')">
+                <img src="../manage employees.png" alt="" class="icon">
+                Manage Employees
+            </div>
+            }
+        </nav>
+
+        <div class="user">
+            <div class="flex hover:cursor-pointer" (click)="viewDetails()">
+                <div class="avatar"></div>
+                <div>
+                    <p class="name">{{ user?.first_name }} {{ user?.last_name }}</p>
+                    <p class="role">{{ user?.user_role }}</p>
+                </div>
+            </div>
+            <div class="p-2 hover:bg-blue-100 flex items-center justify-center rounded-lg hover:cursor-pointer"
+                (click)="onLogout()">
+                <img src="../logout.png" alt="" class="w-6">
+            </div>
+        </div>
+    </aside>
+    @if (showProfile) {
+    <app-profile-view (close)="closeProfile()"></app-profile-view>
+    }
+
+    <main class="content">
+        <div [ngSwitch]="activeTab">
+            <app-dashboard *ngSwitchCase="'dashboard'"></app-dashboard>
+            <app-po-enter *ngSwitchCase="'new sales order'"></app-po-enter>
+            <app-po-view *ngSwitchCase="'manage sales order'"></app-po-view>
+            <app-manage-employee *ngSwitchCase="'manage employees'"></app-manage-employee>
+            <div *ngSwitchDefault>Select a tab</div>
+        </div>
+    </main>
+</div>
