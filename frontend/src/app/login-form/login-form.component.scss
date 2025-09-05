@@ -3,11 +3,11 @@ body {
 }
 
 .login-left {
-  @apply w-[530px] ml-[50px];
+  @apply w-[530px] ml-[90px];
 }
 
 .login-container {
-  @apply flex flex-col justify-center items-center h-[calc(100vh-20px)] overflow-hidden;
+  @apply flex flex-col justify-center items-center h-[calc(100vh-30px)] overflow-hidden;
 }
 
 .logo {
@@ -29,7 +29,7 @@ body {
 }
 
 .input-field {
-  @apply w-[350px] px-4 py-3 border border-gray-300 rounded-[9px] focus:outline-none focus:ring-1 focus:ring-[#FFB800] font-nunito;
+  @apply w-[350px] px-4 py-3 border border-gray-300 rounded-[9px] focus:outline-none focus:ring-1 focus:ring-blue-400 font-nunito;
 }
 
 .error-message {
@@ -37,5 +37,5 @@ body {
 }
 
 .signin-btn {
-  @apply w-[350px] bg-blue-400 text-black py-3 rounded-[9px] hover:bg-blue-600 transition duration-300 font-nunito uppercase font-bold;
+  @apply w-[350px] bg-blue-400 text-black hover:text-white py-3 rounded-[9px] hover:bg-blue-600 transition duration-300 font-nunito uppercase font-bold;
 }
