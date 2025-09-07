@@ -1,0 +1,25 @@
+{
+  "PO_NUMBER": "-",
+  "CURRENCY": "LKR",
+  "TOTAL_VALUE": "432,000",
+  "CUSTOMER": "Pradeep One Day PRICES ARE INC",
+  "INVOICE_ADDRESS": null,
+  "DELIVERY_ADDRESS": null,
+  "ITEMS": [
+    {
+      "ITEM_NAME": "Purchase Order No: -",
+      "UNIT_PRICE": "001762",
+      "QUANTITY": "8101"
+    },
+    {
+      "ITEM_NAME": "Delivery Address:- B Printing Solution",
+      "UNIT_PRICE": "147",
+      "QUANTITY": "2024"
+    },
+    {
+      "ITEM_NAME": "LKR TOTAL AMOUNT LKR: -",
+      "UNIT_PRICE": "159,840.00",
+      "QUANTITY": "00"
+    }
+  ]
+}

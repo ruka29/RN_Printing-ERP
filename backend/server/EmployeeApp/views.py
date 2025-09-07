@@ -8,9 +8,8 @@ from django.conf import settings
 import jwt
 from datetime import datetime, timedelta
 
-# Make sure you have SECRET_KEY in settings.py
-# settings.py
-# SECRET_KEY = 'your_super_secret_key_here'
+
+# ---------------- Existing Endpoints ---------------- #
 
 class EmployeeCreateView(APIView):
     def post(self, request):
@@ -57,12 +56,22 @@ class EmployeeLoginView(APIView):
         return Response({
             "message": "Login successful",
             "employee_id": employee.employee_id,
-            "token": token
+            "jwt_token": token
         }, status=status.HTTP_200_OK)
         
 
 class EmployeeDetailView(APIView):
-    def get(self, request, employee_id):
+    """
+    Get logged-in employee details based on JWT token payload.
+    """
+
+    def get(self, request):
+        # Get employee_id from JWT payload set in middleware
+        employee_id = getattr(request, "user_id", None)
+
+        if not employee_id:
+            return Response({"error": "Unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
+
         try:
             employee = Employee.objects.get(employee_id=employee_id)
         except Employee.DoesNotExist:
@@ -70,4 +79,38 @@ class EmployeeDetailView(APIView):
 
         data = EmployeeSerializer(employee).data
         data.pop('password', None)  # Hide password
-        return Response(data, status=status.HTTP_200_OK)
+        return Response({"user": data}, status=status.HTTP_200_OK)
+
+
+# ---------------- New Endpoints ---------------- #
+
+class EmployeeListView(APIView):
+    """
+    Get all employees without passwords.
+    """
+
+    def get(self, request):
+        employees = Employee.objects.all()
+        data = EmployeeSerializer(employees, many=True).data
+
+        for emp in data:
+            emp.pop('password', None)
+
+        return Response({"users": data}, status=status.HTTP_200_OK)
+
+
+class EmployeeByIdView(APIView):
+    """
+    Get a single employee by employee_id (no password).
+    """
+
+    def get(self, request, employee_id):
+        try:
+            employee = Employee.objects.get(employee_id=employee_id)
+        except Employee.DoesNotExist:
+            return Response({"error": "Employee not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        data = EmployeeSerializer(employee).data
+        data.pop('password', None)
+
+        return Response({"user": data}, status=status.HTTP_200_OK)

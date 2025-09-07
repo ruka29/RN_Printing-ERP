@@ -7,6 +7,7 @@ class Employee(me.Document):
     email = me.EmailField(unique=True)
     password = me.StringField(max_length=500)  # hash later
     department_id = me.IntField()
+    user_role = me.StringField(max_length=50)
 
     meta = {
         "collection": "employees"

@@ -8,6 +8,7 @@ class EmployeeSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(max_length=500)
     department_id = serializers.IntegerField()
+    user_role = serializers.CharField(max_length=50)
 
     def create(self, validated_data):
         emp = Employee(**validated_data)

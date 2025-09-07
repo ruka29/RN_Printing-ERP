@@ -20,8 +20,9 @@ if __name__ == "__main__":
     run_training(
         coco_json="dataset/result.json",
         images_dir="../data/images",
+        ocr_json_path="../data/ocr_labeled_data/label-studio_input_file.json",
         label2id=label2id,
         device=device,
-        epochs=20,
+        epochs=3,  # Reduced for speed
         batch_size=2
     )
