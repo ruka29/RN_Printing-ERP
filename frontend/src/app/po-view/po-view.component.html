@@ -5,7 +5,7 @@
                 </div>
         <div class="bottom-container">
             <div class="flex items-center justify-end">
-                
+
                 <select name="" id="" class="border rounded-lg">
                         <option value="">Completed</option>
                         <option value="">Processing</option>
@@ -33,12 +33,12 @@
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         @for(item of item; track item.id){ <tr>
-                            <td>Premium Widget Assembly
+                            <td>{{ item.customer }}
                             </td>
-                            <td>$125.00</td>
-                            <td>50</td>
-                            <td>$6,250.00</td>
-                             <td>6.00PM</td>
+                            <td>{{ item.salseOderNo }}</td>
+                            <td>{{ item.POdate }}</td>
+                            <td>{{ item.poValue }}</td>
+                             <td>{{ item.estimatedDate }}</td>
                             <td><span  [ngClass]="getRowClasses(item.status)">
                                     {{item.status }}
                                 </span></td>

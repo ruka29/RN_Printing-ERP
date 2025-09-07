@@ -1,10 +1,10 @@
 .main-container {
-    @apply grid grid-cols-1 gap-6 mt-10;
+  @apply flex gap-6 mt-10;
 
     .top-container {
-        @apply w-full h-auto bg-white rounded-md p-6;
+        @apply w-full h-full bg-white rounded-md p-6;
         .container{
-            @apply  border border-dashed rounded-md border-blue-500 gap-1 my-4;
+            @apply h-full border border-dashed rounded-md border-blue-500 gap-1 my-4;
             @apply p-4 grid grid-cols-1 place-items-center;
             .upload{
                 @apply bg-blue-400  p-2 mt-3 rounded-md border border-blue-700;
